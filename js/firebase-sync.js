@@ -1,5 +1,5 @@
 // Yıldızlı Ortalama ✦ Firebase Senkronizasyonu
-// v0.2.2 - Firebase config düzeltmesi
+// v0.2.3 - Firebase config birebir kopyalanan değerle düzeltildi
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
@@ -18,7 +18,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCH6F_weKdk00yACYz_8LLEG0eKg7BbC5U",
+  apiKey: "AIzaSyCH6F_weKdk0OyACYz_8LlEG0eKg7BbC5U",
   authDomain: "yildizli-ortalama-sync.firebaseapp.com",
   projectId: "yildizli-ortalama-sync",
   storageBucket: "yildizli-ortalama-sync.firebasestorage.app",
@@ -169,7 +169,7 @@ function makePayload(reason) {
   return {
     appName: "Yıldızlı Ortalama",
     syncVersion: 1,
-    appVersion: "0.2.1",
+    appVersion: "0.2.3",
     reason: reason || "manual",
     data,
     keyCount: Object.keys(data).length,

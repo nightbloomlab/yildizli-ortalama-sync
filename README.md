@@ -1,8 +1,8 @@
-# Yıldızlı Ortalama v0.2.2 Sync
+# Yıldızlı Ortalama v0.2.3 Sync
 
 GitHub Pages yayın klasörü.
 
-Bu sürümde Firebase ücretsiz Spark plan ile e-posta/şifre girişli bulut senkronizasyon paneli eklendi. v0.2.2 Firebase API key config düzeltmesini içerir.
+Bu sürümde Firebase ücretsiz Spark plan ile e-posta/şifre girişli bulut senkronizasyon paneli eklendi. v0.2.3 Firebase web app config birebir kopyalanan API key ile düzeltildi.
 
 Yayın için bu klasörün içindeki dosya ve klasörleri GitHub reposunun kök dizinine yükleyin:
 
