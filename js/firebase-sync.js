@@ -1,5 +1,5 @@
 // Yıldızlı Ortalama ✦ Firebase Senkronizasyonu
-// v0.2.1 - Firebase config düzeltmesi
+// v0.2.2 - Firebase config düzeltmesi
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
@@ -18,7 +18,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCH6F_weKdk0OyACYz_8LLEG0ekG7BbC5U",
+  apiKey: "AIzaSyCH6F_weKdk00yACYz_8LLEG0eKg7BbC5U",
   authDomain: "yildizli-ortalama-sync.firebaseapp.com",
   projectId: "yildizli-ortalama-sync",
   storageBucket: "yildizli-ortalama-sync.firebasestorage.app",
