@@ -14,3 +14,4 @@ Yayın için bu klasörün içindeki dosya ve klasörleri GitHub reposunun kök 
 - .nojekyll
 
 Not: Kullanıcı ders verileri GitHub'a yüklenmez. Veriler tarayıcı/telefon localStorage içinde kalır. Veriyi taşımak için uygulamadaki Dışa aktar / İçe aktar kullanılmalıdır.
+.
