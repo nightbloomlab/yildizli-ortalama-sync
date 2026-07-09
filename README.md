@@ -1,6 +1,8 @@
-# Yıldızlı Ortalama v0.1.9
+# Yıldızlı Ortalama v0.2.0 Sync
 
 GitHub Pages yayın klasörü.
+
+Bu sürümde Firebase ücretsiz Spark plan ile e-posta/şifre girişli bulut senkronizasyon paneli eklendi.
 
 Yayın için bu klasörün içindeki dosya ve klasörleri GitHub reposunun kök dizinine yükleyin:
 
@@ -13,5 +15,6 @@ Yayın için bu klasörün içindeki dosya ve klasörleri GitHub reposunun kök 
 - service-worker.js
 - .nojekyll
 
-Not: Kullanıcı ders verileri GitHub'a yüklenmez. Veriler tarayıcı/telefon localStorage içinde kalır. Veriyi taşımak için uygulamadaki Dışa aktar / İçe aktar kullanılmalıdır.
-.
+Not: Kullanıcının ders verileri GitHub'a yüklenmez. Veriler cihaz localStorage içinde ve giriş yapılırsa Firebase Firestore içinde kullanıcının kendi hesabında saklanır.
+
+Ücretsiz kullanım kuralı: Spark plan, Email/Password Auth ve Firestore. Blaze, Billing, SMS/Phone, Hosting ve ücretli servisler kullanılmaz.

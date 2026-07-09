@@ -4756,3 +4756,198 @@ summary {
     font-size: 8px !important;
   }
 }
+
+
+/* Bulut Senkronizasyon Paneli - v0.2.0 */
+.senkron-panel {
+  margin: 14px 0 18px;
+}
+
+.senkron-panel summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.senkron-durum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 76px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.senkron-durum[data-durum="bagli"] {
+  background: rgba(151, 205, 159, 0.22);
+  border-color: rgba(151, 205, 159, 0.62);
+}
+
+.senkron-icerik {
+  display: grid;
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.senkron-aciklama,
+.senkron-mesaj {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.senkron-auth,
+.senkron-kullanici,
+.senkron-butonlar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.senkron-auth input {
+  flex: 1 1 170px;
+  min-width: 0;
+}
+
+.senkron-kullanici {
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.senkron-ozet-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.senkron-ozet-grid > div {
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.senkron-ozet-grid span {
+  display: block;
+  opacity: 0.78;
+  font-size: 0.78rem;
+  margin-bottom: 4px;
+}
+
+.senkron-ozet-grid strong {
+  display: block;
+  font-size: 0.92rem;
+}
+
+.senkron-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10);
+  cursor: pointer;
+  user-select: none;
+}
+
+.senkron-auto input {
+  width: auto;
+  min-width: auto;
+}
+
+.senkron-mesaj {
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.senkron-mesaj[data-tip="success"] {
+  background: rgba(151, 205, 159, 0.18);
+  border-color: rgba(151, 205, 159, 0.48);
+}
+
+.senkron-mesaj[data-tip="error"] {
+  background: rgba(221, 120, 127, 0.18);
+  border-color: rgba(221, 120, 127, 0.48);
+}
+
+@media (max-width: 720px) {
+  .senkron-panel {
+    margin: 10px 0 12px;
+  }
+
+  .senkron-panel summary {
+    font-size: 0.78rem;
+  }
+
+  .senkron-durum {
+    min-width: 58px;
+    padding: 3px 7px;
+    font-size: 0.68rem;
+  }
+
+  .senkron-icerik {
+    gap: 8px;
+    padding-top: 8px;
+  }
+
+  .senkron-aciklama,
+  .senkron-mesaj,
+  .senkron-kullanici {
+    font-size: 0.72rem;
+  }
+
+  .senkron-auth,
+  .senkron-butonlar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .senkron-auth input {
+    grid-column: 1 / -1;
+    font-size: 0.75rem;
+    padding: 7px 9px;
+  }
+
+  .senkron-butonlar button,
+  .senkron-auth button,
+  .senkron-kullanici button {
+    font-size: 0.68rem;
+    padding: 7px 8px;
+  }
+
+  .senkron-auto {
+    grid-column: 1 / -1;
+    justify-content: center;
+    font-size: 0.68rem;
+    padding: 7px 8px;
+  }
+
+  .senkron-ozet-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .senkron-ozet-grid > div {
+    padding: 7px;
+    border-radius: 12px;
+  }
+
+  .senkron-ozet-grid span {
+    font-size: 0.65rem;
+    margin-bottom: 2px;
+  }
+
+  .senkron-ozet-grid strong {
+    font-size: 0.72rem;
+  }
+}

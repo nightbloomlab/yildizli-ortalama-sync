@@ -1,10 +1,11 @@
-const CACHE_NAME = "yildizli-ortalama-v019-github";
+const CACHE_NAME = "yildizli-ortalama-v020-sync-github";
 const ASSETS = [
   "./",
   "./index.html",
   "./ders-takip.html",
   "./css/style.css",
   "./js/app.js",
+  "./js/firebase-sync.js",
   "./manifest-yildizli.json",
   "./assets/ders-takip-pastel-ikon.png",
   "./assets/icon-192.png",
