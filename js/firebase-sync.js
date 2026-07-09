@@ -1,5 +1,5 @@
 // Yıldızlı Ortalama ✦ Firebase Senkronizasyonu
-// v0.2.3 - Firebase config birebir kopyalanan değerle düzeltildi
+// v0.2.4 - Bulut senkronizasyon paneli katlanabilir yapıldı
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
@@ -35,6 +35,7 @@ const SYNC_LAST_KEY = "yanoGanoSyncLast";
 const SYNC_EMAIL_KEY = "yanoGanoSyncEmail";
 const SYNC_LAST_PULL_KEY = "yanoGanoSyncLastPull";
 const SYNC_BACKUP_PREFIX = "yanoGanoSyncLocalBackup_";
+const SYNC_PANEL_OPEN_KEY = "yanoGanoSyncPanelOpen";
 
 const SYNCABLE_PREFIXES = ["yanoGano", "dersTakip"];
 const EXCLUDED_PREFIXES = ["yanoGanoSync"];
@@ -121,6 +122,13 @@ function setBusy(isBusy) {
   if (syncElements.auto) syncElements.auto.disabled = !!isBusy || !currentUser;
 }
 
+function updateMiniSummary() {
+  if (!syncElements.miniSummary) return;
+  const localText = `${countLocalCourses()} ders`;
+  const cloudText = currentUser ? (lastCloudInfo ? `${lastCloudInfo.courseCount} ders` : "Yok") : "Giriş yok";
+  syncElements.miniSummary.textContent = `Bu cihaz: ${localText} • Bulut: ${cloudText}`;
+}
+
 function updateLocalSummary() {
   if (syncElements.localCount) {
     syncElements.localCount.textContent = `${countLocalCourses()} ders`;
@@ -131,6 +139,7 @@ function updateLocalSummary() {
   if (syncElements.lastPull) {
     syncElements.lastPull.textContent = formatDate(localStorage.getItem(SYNC_LAST_PULL_KEY));
   }
+  updateMiniSummary();
 }
 
 function updateAuthUI(user) {
@@ -144,6 +153,7 @@ function updateAuthUI(user) {
   if (syncElements.authBox) syncElements.authBox.hidden = loggedIn;
   if (syncElements.userBox) syncElements.userBox.hidden = !loggedIn;
   if (syncElements.userEmail) syncElements.userEmail.textContent = loggedIn ? currentUser.email : "-";
+  updateMiniSummary();
 
   ["upload", "download", "check"].forEach(key => {
     if (syncElements[key]) syncElements[key].disabled = !loggedIn;
@@ -169,7 +179,7 @@ function makePayload(reason) {
   return {
     appName: "Yıldızlı Ortalama",
     syncVersion: 1,
-    appVersion: "0.2.3",
+    appVersion: "0.2.4",
     reason: reason || "manual",
     data,
     keyCount: Object.keys(data).length,
@@ -315,6 +325,7 @@ async function checkCloudState(showMessage = true) {
 function updateCloudSummary(info) {
   if (syncElements.cloudCount) syncElements.cloudCount.textContent = info ? `${info.courseCount} ders` : "Yok";
   if (syncElements.cloudDate) syncElements.cloudDate.textContent = info && info.updatedAtMs ? formatDate(info.updatedAtMs) : "-";
+  updateMiniSummary();
 }
 
 function readableFirebaseError(error) {
@@ -415,10 +426,11 @@ function createSyncPanel() {
   const panel = document.createElement("details");
   panel.className = "panel senkron-panel";
   panel.id = "firebaseSyncPanel";
-  panel.open = true;
+  panel.open = localStorage.getItem(SYNC_PANEL_OPEN_KEY) === "true";
   panel.innerHTML = `
     <summary>
-      <span>Bulut Senkronizasyon ✦</span>
+      <span class="senkron-baslik">Bulut Senkronizasyon ✦</span>
+      <span class="senkron-mini-ozet" id="syncMiniSummary">Bu cihaz: - • Bulut: -</span>
       <span class="senkron-durum" id="syncStatus" data-durum="kapali">Giriş yok</span>
     </summary>
     <div class="senkron-icerik">
@@ -470,6 +482,7 @@ function createSyncPanel() {
   syncElements = {
     panel,
     status: document.getElementById("syncStatus"),
+    miniSummary: document.getElementById("syncMiniSummary"),
     authBox: document.getElementById("syncAuthBox"),
     userBox: document.getElementById("syncUserBox"),
     userEmail: document.getElementById("syncUserEmail"),
@@ -492,6 +505,10 @@ function createSyncPanel() {
   const rememberedEmail = localStorage.getItem(SYNC_EMAIL_KEY);
   if (rememberedEmail && syncElements.email) syncElements.email.value = rememberedEmail;
   if (syncElements.auto) syncElements.auto.checked = localStorage.getItem(SYNC_AUTO_KEY) === "true";
+
+  panel.addEventListener("toggle", () => {
+    localStorage.setItem(SYNC_PANEL_OPEN_KEY, panel.open ? "true" : "false");
+  });
 
   syncElements.login.addEventListener("click", handleLogin);
   syncElements.signup.addEventListener("click", handleSignup);

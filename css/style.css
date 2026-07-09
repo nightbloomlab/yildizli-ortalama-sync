@@ -4768,6 +4768,51 @@ summary {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.senkron-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.senkron-panel summary::after {
+  content: "›";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--purple-dark);
+  font-family: var(--font-readable);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  transition: transform 0.16s ease, background 0.16s ease;
+}
+
+.senkron-panel[open] summary::after {
+  transform: rotate(90deg);
+}
+
+.senkron-baslik {
+  font-weight: 900;
+}
+
+.senkron-mini-ozet {
+  margin-left: auto;
+  font-family: var(--font-readable);
+  font-size: 0.78rem;
+  font-weight: 700;
+  opacity: 0.82;
+}
+
+.senkron-panel:not([open]) {
+  margin-bottom: 12px;
 }
 
 .senkron-durum {
@@ -4885,7 +4930,28 @@ summary {
   }
 
   .senkron-panel summary {
+    flex-wrap: wrap;
+    gap: 6px;
     font-size: 0.78rem;
+  }
+
+  .senkron-baslik {
+    flex: 1 1 auto;
+  }
+
+  .senkron-mini-ozet {
+    order: 3;
+    flex: 1 1 100%;
+    margin-left: 0;
+    font-size: 0.64rem;
+  }
+
+  .senkron-panel summary::after {
+    flex-basis: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 9px;
+    font-size: 18px;
   }
 
   .senkron-durum {

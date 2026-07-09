@@ -1,4 +1,4 @@
-const CACHE_NAME = "yildizli-ortalama-v023-sync-api-key-final";
+const CACHE_NAME = "yildizli-ortalama-v024-sync-collapsible";
 const ASSETS = [
   "./",
   "./index.html",
