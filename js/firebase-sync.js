@@ -1,5 +1,5 @@
 // Yıldızlı Ortalama ✦ Firebase Senkronizasyonu
-// v0.2.4 - Bulut senkronizasyon paneli katlanabilir yapıldı
+// v0.2.5 - Girişte ve uygulama açılışında buluttaki güncel veriyi otomatik getirme eklendi
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
@@ -36,6 +36,7 @@ const SYNC_EMAIL_KEY = "yanoGanoSyncEmail";
 const SYNC_LAST_PULL_KEY = "yanoGanoSyncLastPull";
 const SYNC_BACKUP_PREFIX = "yanoGanoSyncLocalBackup_";
 const SYNC_PANEL_OPEN_KEY = "yanoGanoSyncPanelOpen";
+const SYNC_LAST_CLOUD_MS_KEY = "yanoGanoSyncLastCloudMs";
 
 const SYNCABLE_PREFIXES = ["yanoGano", "dersTakip"];
 const EXCLUDED_PREFIXES = ["yanoGanoSync"];
@@ -163,7 +164,7 @@ function updateAuthUI(user) {
   if (loggedIn) {
     localStorage.setItem(SYNC_EMAIL_KEY, currentUser.email || "");
     updateLocalSummary();
-    checkCloudState(false);
+    checkCloudState(false, { autoPull: true });
   } else {
     setMessage("Senkron için e-posta ve şifreyle giriş yap.", "info");
   }
@@ -179,7 +180,7 @@ function makePayload(reason) {
   return {
     appName: "Yıldızlı Ortalama",
     syncVersion: 1,
-    appVersion: "0.2.4",
+    appVersion: "0.2.5",
     reason: reason || "manual",
     data,
     keyCount: Object.keys(data).length,
@@ -210,6 +211,7 @@ async function uploadToCloud(reason = "manual") {
     await setDoc(syncDocRef(), payload);
     const nowIso = new Date().toISOString();
     localStorage.setItem(SYNC_LAST_KEY, nowIso);
+    localStorage.setItem(SYNC_LAST_CLOUD_MS_KEY, String(payload.updatedAtMs));
     lastCloudInfo = { courseCount: payload.courseCount, keyCount: payload.keyCount, updatedAtMs: payload.updatedAtMs };
     updateLocalSummary();
     updateCloudSummary(lastCloudInfo);
@@ -222,14 +224,15 @@ async function uploadToCloud(reason = "manual") {
   }
 }
 
-async function downloadFromCloud() {
+async function downloadFromCloud(options = {}) {
   if (!currentUser) {
     setMessage("Önce giriş yapmalısın.", "error");
     return;
   }
 
+  const autoMode = options && options.auto === true;
   setBusy(true);
-  setMessage("Buluttaki veri kontrol ediliyor...", "info");
+  setMessage(autoMode ? "Buluttaki güncel veri otomatik getiriliyor..." : "Buluttaki veri kontrol ediliyor...", "info");
   try {
     const snapshot = await getDoc(syncDocRef());
     if (!snapshot.exists()) {
@@ -242,7 +245,7 @@ async function downloadFromCloud() {
     const cloudCourseCount = countCoursesFromStorageData(cloudData);
     const localCourseCount = countLocalCourses();
 
-    if (localCourseCount > 0) {
+    if (localCourseCount > 0 && !autoMode) {
       const ok = confirm(
         `Buluttaki veri (${cloudCourseCount} ders) bu cihazdaki mevcut verinin (${localCourseCount} ders) üstüne yazılacak.\n\n` +
         "Devam etmeden önce bu cihazdaki mevcut veri uygulama içinde güvenli yedek olarak saklanacak. Devam edilsin mi?"
@@ -267,9 +270,10 @@ async function downloadFromCloud() {
     const nowIso = new Date().toISOString();
     localStorage.setItem(SYNC_LAST_PULL_KEY, nowIso);
     localStorage.setItem(SYNC_LAST_KEY, nowIso);
+    if (cloud.updatedAtMs) localStorage.setItem(SYNC_LAST_CLOUD_MS_KEY, String(cloud.updatedAtMs));
     suppressAutoSync = false;
 
-    setMessage(`Buluttan getirildi. (${cloudCourseCount} ders) Sayfa yenileniyor...`, "success");
+    setMessage(autoMode ? `Buluttaki güncel veri otomatik getirildi. (${cloudCourseCount} ders) Sayfa yenileniyor...` : `Buluttan getirildi. (${cloudCourseCount} ders) Sayfa yenileniyor...`, "success");
     updateLocalSummary();
     setTimeout(() => window.location.reload(), 900);
   } catch (error) {
@@ -295,7 +299,34 @@ function createLocalSafetyBackup(label) {
   }
 }
 
-async function checkCloudState(showMessage = true) {
+function getLastCloudMs() {
+  const value = Number(localStorage.getItem(SYNC_LAST_CLOUD_MS_KEY) || "0");
+  return Number.isFinite(value) ? value : 0;
+}
+
+function shouldAutoPullFromCloud(cloud) {
+  const cloudData = cloud && cloud.data ? cloud.data : {};
+  const cloudCourseCount = countCoursesFromStorageData(cloudData);
+  const localCourseCount = countLocalCourses();
+  const cloudMs = Number(cloud && cloud.updatedAtMs ? cloud.updatedAtMs : 0);
+  const lastCloudMs = getLastCloudMs();
+
+  if (!cloudData || Object.keys(cloudData).length === 0 || cloudCourseCount === 0) {
+    return { should: false, reason: "empty-cloud" };
+  }
+
+  if (localCourseCount === 0) {
+    return { should: true, reason: "local-empty" };
+  }
+
+  if (cloudMs && cloudMs > lastCloudMs) {
+    return { should: true, reason: "cloud-newer" };
+  }
+
+  return { should: false, reason: "already-current" };
+}
+
+async function checkCloudState(showMessage = true, options = {}) {
   if (!currentUser) return;
   try {
     const snapshot = await getDoc(syncDocRef());
@@ -313,6 +344,24 @@ async function checkCloudState(showMessage = true) {
       updatedBy: cloud.updatedBy || "-"
     };
     updateCloudSummary(lastCloudInfo);
+
+    if (options && options.autoPull) {
+      const decision = shouldAutoPullFromCloud(cloud);
+      if (decision.should) {
+        setMessage(
+          decision.reason === "local-empty"
+            ? "Bu cihaz boş. Buluttaki veriler otomatik getiriliyor..."
+            : "Bulutta daha güncel veri var. Otomatik getiriliyor...",
+          "info"
+        );
+        setTimeout(() => downloadFromCloud({ auto: true }), 250);
+        return;
+      }
+      if (!showMessage) {
+        setMessage(`Bulut kontrol edildi. Bu cihaz güncel görünüyor. (${lastCloudInfo.courseCount} ders)`, "success");
+      }
+    }
+
     if (showMessage) {
       setMessage(`Bulut yedeği bulundu. (${lastCloudInfo.courseCount} ders)`, "success");
     }
@@ -351,7 +400,7 @@ async function handleSignup() {
   try {
     await createUserWithEmailAndPassword(auth, email, password);
     syncElements.password.value = "";
-    setMessage("Hesap oluşturuldu ve giriş yapıldı. Şimdi verisi olan cihazdan 'Buluta yedekle' yap.", "success");
+    setMessage("Hesap oluşturuldu ve giriş yapıldı. Bulutta güncel veri varsa otomatik getirilecek.", "success");
   } catch (error) {
     setMessage("Kayıt başarısız: " + readableFirebaseError(error), "error");
   } finally {
@@ -371,7 +420,7 @@ async function handleLogin() {
   try {
     await signInWithEmailAndPassword(auth, email, password);
     syncElements.password.value = "";
-    setMessage("Giriş yapıldı. Bulut durumunu kontrol ediyorum...", "success");
+    setMessage("Giriş yapıldı. Bulutta güncel veri varsa otomatik getirilecek...", "success");
   } catch (error) {
     setMessage("Giriş başarısız: " + readableFirebaseError(error), "error");
   } finally {
@@ -434,7 +483,7 @@ function createSyncPanel() {
       <span class="senkron-durum" id="syncStatus" data-durum="kapali">Giriş yok</span>
     </summary>
     <div class="senkron-icerik">
-      <p class="senkron-aciklama">PC ve telefon arasında ders verilerini ücretsiz Firebase hesabınla eşitle.</p>
+      <p class="senkron-aciklama">PC ve telefon arasında ders verilerini ücretsiz Firebase hesabınla eşitle. Giriş yaptığında bulutta güncel veri varsa otomatik getirilir.</p>
 
       <div class="senkron-auth" id="syncAuthBox">
         <input id="syncEmail" type="email" autocomplete="email" placeholder="E-posta">
@@ -461,7 +510,7 @@ function createSyncPanel() {
         <button type="button" class="ikincil" id="syncCheck" disabled>Bulut durumu</button>
         <label class="senkron-auto">
           <input type="checkbox" id="syncAuto" disabled>
-          <span>Otomatik senkron</span>
+          <span>Değişiklikleri otomatik yedekle</span>
         </label>
       </div>
 
@@ -518,7 +567,7 @@ function createSyncPanel() {
   syncElements.check.addEventListener("click", () => checkCloudState(true));
   syncElements.auto.addEventListener("change", () => {
     localStorage.setItem(SYNC_AUTO_KEY, syncElements.auto.checked ? "true" : "false");
-    setMessage(syncElements.auto.checked ? "Otomatik senkron açıldı. Bundan sonraki değişiklikler buluta yedeklenir." : "Otomatik senkron kapatıldı.", "info");
+    setMessage(syncElements.auto.checked ? "Değişiklikleri otomatik yedekleme açıldı. Bulutta güncel veri varsa uygulama girişte zaten otomatik getirir." : "Değişiklikleri otomatik yedekleme kapatıldı.", "info");
     if (syncElements.auto.checked && currentUser) queueAutoSync("auto-enabled");
   });
   [syncElements.email, syncElements.password].forEach(input => {
