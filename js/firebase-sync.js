@@ -1,5 +1,5 @@
 // Yıldızlı Ortalama ✦ Firebase Senkronizasyonu
-// v0.2.16 - Ayarlar açılır panel + canlı bulut izleme
+// v0.2.17 - Ayarlar açılır panel + canlı bulut izleme
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
