@@ -1,5 +1,5 @@
 // Yıldızlı Ortalama ✦ Firebase Senkronizasyonu
-// v0.2.15 - Ayarlar açılır panel + canlı bulut izleme
+// v0.2.16 - Ayarlar açılır panel + canlı bulut izleme
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
@@ -186,7 +186,7 @@ function makePayload(reason) {
   return {
     appName: "Yıldızlı Ortalama",
     syncVersion: 1,
-    appVersion: "0.2.15",
+    appVersion: "0.2.16",
     reason: reason || "manual",
     data,
     keyCount: Object.keys(data).length,

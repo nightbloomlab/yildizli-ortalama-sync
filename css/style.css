@@ -5952,3 +5952,202 @@ body .ayarlar-paneli .ayar-ic-yedekleme .yedekleme-durumu {
   border: 1px solid rgba(255, 255, 255, 0.14) !important;
   color: var(--text-light) !important;
 }
+
+
+/* v0.2.16 - Mobil font küçültme ve daha dengeli mobil görünüm */
+@media (max-width: 768px) {
+  body {
+    font-size: 13px !important;
+  }
+
+  header h1 {
+    font-size: 1.05rem !important;
+    line-height: 1.1 !important;
+  }
+
+  header .aciklama,
+  .aciklama {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .surum-etiketi {
+    font-size: 0.78rem !important;
+    padding: 8px 14px !important;
+    border-radius: 18px !important;
+  }
+
+  /* Bulut senkronizasyon kapalı/açık yazıları */
+  .senkron-panel summary {
+    font-size: 0.86rem !important;
+    line-height: 1.25 !important;
+    padding: 14px 16px !important;
+  }
+
+  .senkron-baslik {
+    font-size: 0.94rem !important;
+  }
+
+  .senkron-mini-ozet,
+  .senkron-durum {
+    font-size: 0.72rem !important;
+  }
+
+  .senkron-aciklama,
+  .senkron-mesaj,
+  .senkron-kullanici,
+  .senkron-ozet-grid span,
+  .senkron-auto {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .senkron-ozet-grid strong {
+    font-size: 0.82rem !important;
+  }
+
+  .senkron-auth input,
+  .senkron-auth button,
+  .senkron-butonlar button,
+  .senkron-kullanici button {
+    font-size: 0.76rem !important;
+  }
+
+  /* Ayarlar paneli başlık */
+  .ayarlar-paneli > summary.ayar-panel-ozet {
+    min-height: 46px !important;
+    padding: 12px 14px !important;
+  }
+
+  .ayarlar-paneli > summary.ayar-panel-ozet span,
+  .ayarlar-paneli > summary.ayar-panel-ozet > span:first-child {
+    font-size: 1.03rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .ayarlar-paneli > summary.ayar-panel-ozet::after {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 18px !important;
+  }
+
+  .ayarlar-paneli .ayar-panel-icerik {
+    padding: 10px 12px 12px !important;
+    gap: 10px !important;
+  }
+
+  .ayarlar-paneli .ayar-panel-ust {
+    gap: 7px !important;
+  }
+
+  /* Tema / Doodle / O-F */
+  .ayarlar-paneli .ayar-ana-buton,
+  .ayarlar-paneli .ayar-secim-buton {
+    font-size: 0.72rem !important;
+    min-height: 38px !important;
+    height: 38px !important;
+    padding: 0 10px !important;
+    border-radius: 13px !important;
+  }
+
+  /* Dışa aktar / içe aktar / rapor / tümünü sil */
+  .ayarlar-paneli .ayar-ic-yedekleme button {
+    font-size: 0.95rem !important;
+    min-height: 48px !important;
+    padding: 11px 14px !important;
+    border-radius: 16px !important;
+    line-height: 1.15 !important;
+  }
+
+  .ayarlar-paneli .ayar-ic-yedekleme .yedekleme-durumu {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    min-height: 40px !important;
+    padding: 9px 10px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Ders ekle / dönem seç / paneller */
+  .form-katlanir-baslik,
+  .donem-secimi label,
+  .panel > summary,
+  .senaryo-katlanabilir > summary.senaryo-ozet,
+  .veri-guvenligi-panel > summary,
+  .toplu-panel > summary,
+  .hedef-panel > summary,
+  .donem-profil-panel > summary,
+  .veri-sagligi-panel > summary {
+    font-size: 0.95rem !important;
+    line-height: 1.25 !important;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 0.86rem !important;
+  }
+
+  .donem-secimi select {
+    font-size: 0.86rem !important;
+    min-height: 46px !important;
+  }
+
+  /* YANO / GANO kartları */
+  .sonuc-karti {
+    padding: 12px 10px !important;
+  }
+
+  .sonuc-baslik {
+    font-size: 0.73rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .sonuc-deger {
+    font-size: 1.55rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .sonuc-alt {
+    font-size: 0.76rem !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Dersler başlığı ve filtreler */
+  .liste-baslik h2,
+  .dersler-baslik h2 {
+    font-size: 1.05rem !important;
+  }
+
+  .filtre-butonlari button,
+  .filtreler button,
+  .ders-filtreleri button {
+    font-size: 0.72rem !important;
+    padding: 8px 10px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  header h1 {
+    font-size: 0.98rem !important;
+  }
+
+  header .aciklama,
+  .aciklama {
+    font-size: 0.72rem !important;
+  }
+
+  .ayarlar-paneli > summary.ayar-panel-ozet span,
+  .ayarlar-paneli > summary.ayar-panel-ozet > span:first-child {
+    font-size: 0.98rem !important;
+  }
+
+  .ayarlar-paneli .ayar-ic-yedekleme button {
+    font-size: 0.9rem !important;
+    min-height: 46px !important;
+  }
+
+  .sonuc-deger {
+    font-size: 1.42rem !important;
+  }
+}
