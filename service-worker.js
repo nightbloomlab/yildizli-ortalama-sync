@@ -1,4 +1,4 @@
-const CACHE_NAME = "yildizli-ortalama-v028-settings-panel";
+const CACHE_NAME = "yildizli-ortalama-v0211-settings-inside-panel";
 const ASSETS = [
   "./",
   "./index.html",

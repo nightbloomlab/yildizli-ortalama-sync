@@ -39,7 +39,7 @@
     <header>
       <h1>Yıldızlı Ortalama ✦</h1>
       <p class="aciklama">Vize ve final notlarını gir, dönem ve genel ortalamanı kolayca gör.</p>
-      <span class="surum-etiketi" id="surumEtiketi">v0.2.10</span>
+      <span class="surum-etiketi" id="surumEtiketi">v0.2.11</span>
     </header>
 
     <section class="calisma-alani">
@@ -200,62 +200,62 @@
             <details class="gorsel-ayar-alani ayarlar-paneli" id="ayarlarPaneli">
               <summary class="ayar-panel-ozet">
                 <span>Ayarlar ✦</span>
-                <span class="ayar-panel-mini">Tema / Doodle / O-F</span>
               </summary>
-              <div class="ayar-panel-icerik" aria-label="Görsel ayarlar">
-              <div class="ayar-kutusu" data-ayar="tema">
-                <button type="button" class="ayar-ana-buton" id="temaMenuButonu" aria-expanded="false" aria-controls="temaMenu">Tema ✦</button>
-                <div class="ayar-menu" id="temaMenu" hidden>
-                  <button type="button" class="ayar-secim-buton" data-tema="mor">Mor</button>
-                  <button type="button" class="ayar-secim-buton" data-tema="mavi">Mavi</button>
-                  <button type="button" class="ayar-secim-buton" data-tema="yesil">Yeşil</button>
-                  <button type="button" class="ayar-secim-buton" data-tema="kirmizi">Kırmızı</button>
-                  <button type="button" class="ayar-secim-buton" data-tema="sari">Sarı</button>
-                </div>
-                <select id="temaSecimi" aria-label="Tema seçimi">
-                  <option value="mor">Mor</option>
-                  <option value="mavi">Mavi</option>
-                  <option value="yesil">Yeşil</option>
-                  <option value="kirmizi">Kırmızı</option>
-                  <option value="sari">Sarı</option>
-                </select>
-              </div>
+              <div class="ayar-panel-icerik" aria-label="Görsel ayarlar ve veri işlemleri">
+                <div class="ayar-panel-ust">
+                  <div class="ayar-kutusu" data-ayar="tema">
+                    <button type="button" class="ayar-ana-buton" id="temaMenuButonu" aria-expanded="false" aria-controls="temaMenu">Tema ✦</button>
+                    <div class="ayar-menu" id="temaMenu" hidden>
+                      <button type="button" class="ayar-secim-buton" data-tema="mor">Mor</button>
+                      <button type="button" class="ayar-secim-buton" data-tema="mavi">Mavi</button>
+                      <button type="button" class="ayar-secim-buton" data-tema="yesil">Yeşil</button>
+                      <button type="button" class="ayar-secim-buton" data-tema="kirmizi">Kırmızı</button>
+                      <button type="button" class="ayar-secim-buton" data-tema="sari">Sarı</button>
+                    </div>
+                    <select id="temaSecimi" aria-label="Tema seçimi">
+                      <option value="mor">Mor</option>
+                      <option value="mavi">Mavi</option>
+                      <option value="yesil">Yeşil</option>
+                      <option value="kirmizi">Kırmızı</option>
+                      <option value="sari">Sarı</option>
+                    </select>
+                  </div>
 
-              <div class="ayar-kutusu" data-ayar="doodle">
-                <button type="button" class="ayar-ana-buton" id="doodleMenuButonu" aria-expanded="false" aria-controls="doodleMenu">Doodle ✧</button>
-                <div class="ayar-menu" id="doodleMenu" hidden>
-                  <button type="button" class="ayar-secim-buton" data-doodle="az">Az</button>
-                  <button type="button" class="ayar-secim-buton" data-doodle="orta">Orta</button>
-                  <button type="button" class="ayar-secim-buton" data-doodle="cok">Çok</button>
-                  <button type="button" class="ayar-secim-buton" data-doodle="asiri">Aşırı</button>
-                </div>
-                <select id="doodleYogunlugu" aria-label="Doodle yoğunluğu seçimi">
-                  <option value="az">Az</option>
-                  <option value="orta">Orta</option>
-                  <option value="cok">Çok</option>
-                  <option value="asiri">Aşırı</option>
-                </select>
-              </div>
+                  <div class="ayar-kutusu" data-ayar="doodle">
+                    <button type="button" class="ayar-ana-buton" id="doodleMenuButonu" aria-expanded="false" aria-controls="doodleMenu">Doodle ✧</button>
+                    <div class="ayar-menu" id="doodleMenu" hidden>
+                      <button type="button" class="ayar-secim-buton" data-doodle="az">Az</button>
+                      <button type="button" class="ayar-secim-buton" data-doodle="orta">Orta</button>
+                      <button type="button" class="ayar-secim-buton" data-doodle="cok">Çok</button>
+                      <button type="button" class="ayar-secim-buton" data-doodle="asiri">Aşırı</button>
+                    </div>
+                    <select id="doodleYogunlugu" aria-label="Doodle yoğunluğu seçimi">
+                      <option value="az">Az</option>
+                      <option value="orta">Orta</option>
+                      <option value="cok">Çok</option>
+                      <option value="asiri">Aşırı</option>
+                    </select>
+                  </div>
 
-              <div class="ayar-kutusu" data-ayar="of">
-                <button type="button" class="ayar-ana-buton" id="ofMenuButonu" aria-expanded="false" aria-controls="ofMenu">O/F</button>
-                <div class="ayar-menu ayar-menu-genis" id="ofMenu" hidden>
-                  <button type="button" class="ayar-secim-buton veri-kurtarma-buton" id="sifirDersleriPlanlananaCevirButonu">0 / FF → Planlanan</button>
-                  <p class="veri-kurtarma-notu">Vize-finali 0 olan yanlış notlu dersleri GANO'yu bozmasın diye planlanan derse çevirir.</p>
+                  <div class="ayar-kutusu" data-ayar="of">
+                    <button type="button" class="ayar-ana-buton" id="ofMenuButonu" aria-expanded="false" aria-controls="ofMenu">O/F</button>
+                    <div class="ayar-menu ayar-menu-genis" id="ofMenu" hidden>
+                      <button type="button" class="ayar-secim-buton veri-kurtarma-buton" id="sifirDersleriPlanlananaCevirButonu">0 / FF → Planlanan</button>
+                      <p class="veri-kurtarma-notu">Vize-finali 0 olan yanlış notlu dersleri GANO'yu bozmasın diye planlanan derse çevirir.</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
+
+                <section class="yedekleme-alani ayar-ic-yedekleme" aria-label="Veri yedekleme, aktarma ve rapor">
+                  <button type="button" id="disaAktarButonu">Dışa aktar</button>
+                  <button type="button" class="ikincil" id="iceAktarButonu">İçe aktar</button>
+                  <button type="button" class="ikincil" id="raporYazdirButonu">Rapor / PDF</button>
+                  <button type="button" class="tumunu-sil-buton" id="tumunuSilButonu">Tümünü sil</button>
+                  <input id="iceAktarDosyasi" type="file" accept="application/json,.json" hidden>
+                  <p class="yedekleme-durumu" id="yedeklemeDurumu">Yedek durumu kontrol ediliyor.</p>
+                </section>
               </div>
             </details>
-
-            <section class="yedekleme-alani" aria-label="Veri yedekleme, aktarma ve rapor">
-              <button type="button" id="disaAktarButonu">Dışa aktar</button>
-              <button type="button" class="ikincil" id="iceAktarButonu">İçe aktar</button>
-              <button type="button" class="ikincil" id="raporYazdirButonu">Rapor / PDF</button>
-              <button type="button" class="tumunu-sil-buton" id="tumunuSilButonu">Tümünü sil</button>
-              <input id="iceAktarDosyasi" type="file" accept="application/json,.json" hidden>
-              <p class="yedekleme-durumu" id="yedeklemeDurumu">Yedek durumu kontrol ediliyor.</p>
-            </section>
-
 
             <details class="panel veri-guvenligi-panel" id="veriGuvenligiPanel">
               <summary>Veri güvenliği ✦</summary>

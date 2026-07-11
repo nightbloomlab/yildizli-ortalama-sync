@@ -1,4 +1,4 @@
-# Yıldızlı Ortalama v0.2.10 Sync
+# Yıldızlı Ortalama v0.2.11 Sync
 
 GitHub Pages yayın klasörü.
 
@@ -24,3 +24,6 @@ Ek düzeltme: PC görünümünde Bulut Senkronizasyon paneli kapalıyken/açıkk
 
 
 Ek düzeltme: Tema / Doodle / O-F kontrolleri tek bir "Ayarlar" açılır panelinin içine alındı. PC ve mobilde üst üste binme engellendi.
+
+
+v0.2.11: index.html ve ders-takip.html birlikte düzeltildi; Ayarlar başlığı sadeleştirildi ve aktarma butonları tamamen Ayarlar panelinin içine alındı.

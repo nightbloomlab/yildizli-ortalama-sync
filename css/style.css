@@ -5417,3 +5417,141 @@ summary {
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* v0.2.11 - Kesin düzeltme: Ayarlar başlığı sade, tema ve aktarma tamamen aynı panel içinde */
+.ayar-panel-mini {
+  display: none !important;
+}
+
+.sag-calisma > .yedekleme-alani:not(.ayar-ic-yedekleme) {
+  display: none !important;
+}
+
+.sag-calisma .gorsel-ayar-alani.ayarlar-paneli,
+.gorsel-ayar-alani.ayarlar-paneli {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ayarlar-paneli > summary.ayar-panel-ozet {
+  width: 100% !important;
+  min-height: 48px !important;
+  padding: 10px 14px !important;
+  border-radius: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+}
+
+.ayarlar-paneli > summary.ayar-panel-ozet span {
+  font-size: 0.95rem !important;
+}
+
+.ayarlar-paneli .ayar-panel-icerik {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 10px !important;
+  width: 100% !important;
+  margin: 10px 0 0 !important;
+  padding: 12px !important;
+  box-sizing: border-box !important;
+  border-radius: 18px !important;
+  background: rgba(76, 66, 86, 0.20) !important;
+  border: 1px solid rgba(255, 248, 255, 0.22) !important;
+  box-shadow: var(--soft-shadow) !important;
+}
+
+.ayarlar-paneli:not([open]) .ayar-panel-icerik {
+  display: none !important;
+}
+
+.ayarlar-paneli .ayar-panel-ust {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ayarlar-paneli .ayar-kutusu {
+  position: relative !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+}
+
+.ayarlar-paneli .ayar-ana-buton {
+  width: auto !important;
+  min-width: 76px !important;
+  max-width: none !important;
+  height: 36px !important;
+  padding: 0 12px !important;
+  border-radius: 12px !important;
+}
+
+.ayarlar-paneli .ayar-kutusu[data-ayar="of"] .ayar-ana-buton {
+  min-width: 58px !important;
+}
+
+.ayarlar-paneli .ayar-ic-yedekleme,
+.ayarlar-paneli .ayar-ic-yedekleme.yedekleme-alani {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ayarlar-paneli .ayar-ic-yedekleme button {
+  width: 100% !important;
+  min-height: 38px !important;
+  border-radius: 12px !important;
+}
+
+.ayarlar-paneli .ayar-ic-yedekleme .yedekleme-durumu {
+  grid-column: 1 / -1 !important;
+  margin: 0 !important;
+  padding: 9px 12px !important;
+  border-radius: 12px !important;
+}
+
+@media (max-width: 900px) {
+  .ayarlar-paneli .ayar-ic-yedekleme,
+  .ayarlar-paneli .ayar-ic-yedekleme.yedekleme-alani {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .ayarlar-paneli .ayar-panel-ust {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  .ayarlar-paneli .ayar-ana-buton {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 6px !important;
+  }
+
+  .ayarlar-paneli .ayar-ic-yedekleme,
+  .ayarlar-paneli .ayar-ic-yedekleme.yedekleme-alani {
+    grid-template-columns: 1fr !important;
+  }
+}
