@@ -5743,3 +5743,122 @@ summary {
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* v0.2.13 - Ayarlar tek kart: temalara uygun şeffaf cam renkleri */
+body.tema-mor,
+:root {
+  --ayar-cam-bg: rgba(231, 211, 229, 0.16);
+  --ayar-cam-bg-open: rgba(231, 211, 229, 0.20);
+  --ayar-cam-border: rgba(231, 211, 229, 0.36);
+  --ayar-cam-line: rgba(255, 248, 255, 0.20);
+  --ayar-buton-bg: rgba(179, 154, 178, 0.34);
+  --ayar-buton-bg-hover: rgba(222, 200, 220, 0.38);
+  --ayar-buton-border: rgba(255, 248, 255, 0.28);
+  --ayar-yazi: #fff8ff;
+}
+
+body.tema-mavi {
+  --ayar-cam-bg: rgba(217, 231, 241, 0.15);
+  --ayar-cam-bg-open: rgba(217, 231, 241, 0.20);
+  --ayar-cam-border: rgba(203, 221, 235, 0.34);
+  --ayar-cam-line: rgba(231, 242, 251, 0.20);
+  --ayar-buton-bg: rgba(169, 189, 208, 0.32);
+  --ayar-buton-bg-hover: rgba(203, 221, 235, 0.38);
+  --ayar-buton-border: rgba(231, 242, 251, 0.28);
+  --ayar-yazi: #f7fbff;
+}
+
+body.tema-yesil {
+  --ayar-cam-bg: rgba(220, 234, 223, 0.15);
+  --ayar-cam-bg-open: rgba(220, 234, 223, 0.20);
+  --ayar-cam-border: rgba(207, 223, 211, 0.34);
+  --ayar-cam-line: rgba(233, 247, 237, 0.20);
+  --ayar-buton-bg: rgba(174, 199, 185, 0.32);
+  --ayar-buton-bg-hover: rgba(207, 223, 211, 0.38);
+  --ayar-buton-border: rgba(233, 247, 237, 0.28);
+  --ayar-yazi: #f8fff9;
+}
+
+body.tema-kirmizi {
+  --ayar-cam-bg: rgba(239, 214, 221, 0.15);
+  --ayar-cam-bg-open: rgba(239, 214, 221, 0.20);
+  --ayar-cam-border: rgba(231, 201, 210, 0.34);
+  --ayar-cam-line: rgba(250, 232, 238, 0.20);
+  --ayar-buton-bg: rgba(202, 160, 171, 0.32);
+  --ayar-buton-bg-hover: rgba(231, 201, 210, 0.38);
+  --ayar-buton-border: rgba(250, 232, 238, 0.28);
+  --ayar-yazi: #fff8fb;
+}
+
+body.tema-sari {
+  --ayar-cam-bg: rgba(242, 229, 199, 0.15);
+  --ayar-cam-bg-open: rgba(242, 229, 199, 0.20);
+  --ayar-cam-border: rgba(232, 216, 181, 0.34);
+  --ayar-cam-line: rgba(255, 242, 203, 0.20);
+  --ayar-buton-bg: rgba(212, 191, 145, 0.32);
+  --ayar-buton-bg-hover: rgba(232, 216, 181, 0.38);
+  --ayar-buton-border: rgba(255, 242, 203, 0.28);
+  --ayar-yazi: #fff9e7;
+}
+
+.sag-calisma .gorsel-ayar-alani.ayarlar-paneli,
+.gorsel-ayar-alani.ayarlar-paneli {
+  background:
+    linear-gradient(135deg, var(--ayar-cam-bg-open), var(--ayar-cam-bg)) !important;
+  border-color: var(--ayar-cam-border) !important;
+  box-shadow:
+    0 14px 30px rgba(24, 18, 28, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
+  backdrop-filter: blur(8px) saturate(1.08) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(1.08) !important;
+}
+
+.ayarlar-paneli > summary.ayar-panel-ozet {
+  color: var(--ayar-yazi) !important;
+  text-shadow: 0 1px 8px rgba(40, 30, 45, 0.18) !important;
+}
+
+.ayarlar-paneli[open] > summary.ayar-panel-ozet {
+  border-bottom-color: var(--ayar-cam-line) !important;
+}
+
+.ayarlar-paneli > summary.ayar-panel-ozet::after {
+  background: rgba(255, 255, 255, 0.20) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: var(--ayar-yazi) !important;
+}
+
+.ayarlar-paneli .ayar-ana-buton,
+.ayarlar-paneli .ayar-ic-yedekleme button {
+  background: var(--ayar-buton-bg) !important;
+  border-color: var(--ayar-buton-border) !important;
+  color: var(--ayar-yazi) !important;
+  box-shadow:
+    0 8px 18px rgba(35, 24, 43, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
+}
+
+.ayarlar-paneli .ayar-ana-buton:hover,
+.ayarlar-paneli .ayar-ic-yedekleme button:hover {
+  background: var(--ayar-buton-bg-hover) !important;
+  transform: translateY(-1px) !important;
+}
+
+.ayarlar-paneli .ayar-ic-yedekleme .tumunu-sil-buton {
+  background: color-mix(in srgb, var(--danger) 72%, transparent) !important;
+  border-color: rgba(255, 248, 255, 0.24) !important;
+}
+
+.ayarlar-paneli .ayar-ic-yedekleme .yedekleme-durumu {
+  background: rgba(255, 248, 255, 0.18) !important;
+  border: 1px solid rgba(255, 248, 255, 0.18) !important;
+  color: var(--text) !important;
+}
+
+.ayarlar-paneli .ayar-menu {
+  background: rgba(255, 248, 255, 0.88) !important;
+  border-color: var(--ayar-cam-border) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
