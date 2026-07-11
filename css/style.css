@@ -5555,3 +5555,191 @@ summary {
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* v0.2.12 - Ayarlar: başlık ve içerik tek kart, iki ayrı sekme görünümü kaldırıldı */
+.sag-calisma .gorsel-ayar-alani.ayarlar-paneli,
+.gorsel-ayar-alani.ayarlar-paneli {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  border-radius: 22px !important;
+  background: rgba(255, 248, 255, 0.13) !important;
+  border: 1px solid rgba(255, 248, 255, 0.30) !important;
+  box-shadow: var(--soft-shadow) !important;
+  box-sizing: border-box !important;
+}
+
+.ayarlar-paneli > summary.ayar-panel-ozet {
+  width: 100% !important;
+  min-height: 54px !important;
+  margin: 0 !important;
+  padding: 12px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  border-radius: 22px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+.ayarlar-paneli[open] > summary.ayar-panel-ozet {
+  border-radius: 22px 22px 0 0 !important;
+  border-bottom: 1px solid rgba(255, 248, 255, 0.20) !important;
+}
+
+.ayarlar-paneli > summary.ayar-panel-ozet span,
+.ayarlar-paneli > summary.ayar-panel-ozet > span:first-child {
+  font-size: 0.95rem !important;
+  font-weight: 900 !important;
+}
+
+.ayar-panel-mini {
+  display: none !important;
+}
+
+.ayarlar-paneli .ayar-panel-icerik {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 12px 12px 14px !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 10px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 0 22px 22px !important;
+  box-sizing: border-box !important;
+}
+
+.ayarlar-paneli:not([open]) .ayar-panel-icerik {
+  display: none !important;
+}
+
+.ayarlar-paneli .ayar-panel-ust {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ayarlar-paneli .ayar-kutusu {
+  position: relative !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ayarlar-paneli .ayar-kutusu[data-ayar="tema"] .ayar-ana-buton,
+.ayarlar-paneli .ayar-kutusu[data-ayar="doodle"] .ayar-ana-buton,
+.ayarlar-paneli .ayar-kutusu[data-ayar="of"] .ayar-ana-buton,
+.ayarlar-paneli .ayar-ana-buton {
+  width: auto !important;
+  min-width: 74px !important;
+  max-width: none !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 0 12px !important;
+  border-radius: 13px !important;
+  font-size: 11px !important;
+}
+
+.ayarlar-paneli .ayar-kutusu[data-ayar="of"] .ayar-ana-buton {
+  min-width: 56px !important;
+}
+
+.ayarlar-paneli .ayar-ic-yedekleme,
+.ayarlar-paneli .ayar-ic-yedekleme.yedekleme-alani {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.ayarlar-paneli .ayar-ic-yedekleme button {
+  width: 100% !important;
+  min-height: 40px !important;
+  padding: 6px 10px !important;
+  border-radius: 13px !important;
+  font-size: 13px !important;
+  white-space: nowrap !important;
+}
+
+.ayarlar-paneli .ayar-ic-yedekleme .yedekleme-durumu {
+  grid-column: 1 / -1 !important;
+  margin: 0 !important;
+  min-height: 38px !important;
+  padding: 9px 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  border-radius: 13px !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 900px) {
+  .ayarlar-paneli > summary.ayar-panel-ozet {
+    min-height: 44px !important;
+    padding: 9px 11px !important;
+  }
+
+  .ayarlar-paneli .ayar-panel-icerik {
+    padding: 10px !important;
+  }
+
+  .ayarlar-paneli .ayar-panel-ust {
+    gap: 6px !important;
+  }
+
+  .ayarlar-paneli .ayar-ic-yedekleme,
+  .ayarlar-paneli .ayar-ic-yedekleme.yedekleme-alani {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .ayarlar-paneli .ayar-panel-ust {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  .ayarlar-paneli .ayar-ana-buton,
+  .ayarlar-paneli .ayar-kutusu[data-ayar="tema"] .ayar-ana-buton,
+  .ayarlar-paneli .ayar-kutusu[data-ayar="doodle"] .ayar-ana-buton,
+  .ayarlar-paneli .ayar-kutusu[data-ayar="of"] .ayar-ana-buton {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 6px !important;
+    font-size: 8px !important;
+  }
+
+  .ayarlar-paneli .ayar-ic-yedekleme,
+  .ayarlar-paneli .ayar-ic-yedekleme.yedekleme-alani {
+    grid-template-columns: 1fr !important;
+  }
+}
