@@ -1,5 +1,5 @@
 // Yıldızlı Ortalama ✦ Firebase Senkronizasyonu
-// v0.2.6 - Canlı bulut izleme + sayfa odaklanınca otomatik güncel veri getirme eklendi
+// v0.2.7 - PC tema çubuğu taşma düzeltmesi + canlı bulut izleme
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
@@ -186,7 +186,7 @@ function makePayload(reason) {
   return {
     appName: "Yıldızlı Ortalama",
     syncVersion: 1,
-    appVersion: "0.2.6",
+    appVersion: "0.2.7",
     reason: reason || "manual",
     data,
     keyCount: Object.keys(data).length,

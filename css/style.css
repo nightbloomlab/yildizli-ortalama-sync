@@ -5017,3 +5017,33 @@ summary {
     font-size: 0.72rem;
   }
 }
+
+
+/* v0.2.7 - PC'de bulut paneli kapalı/açıkken tema butonlarının üst üste binmesini engelle */
+@media (min-width: 901px) {
+  .sag-calisma {
+    position: relative !important;
+  }
+
+  .sag-calisma .gorsel-ayar-alani,
+  .gorsel-ayar-alani {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    margin: 0 0 10px 0 !important;
+    padding: 0 !important;
+    min-height: auto !important;
+    z-index: 5 !important;
+  }
+
+  .sag-calisma .yedekleme-alani,
+  .yedekleme-alani {
+    margin-top: 0 !important;
+  }
+}

@@ -1,4 +1,4 @@
-# Yıldızlı Ortalama v0.2.6 Sync
+# Yıldızlı Ortalama v0.2.7 Sync
 
 GitHub Pages yayın klasörü.
 
@@ -18,3 +18,6 @@ Yayın için bu klasörün içindeki dosya ve klasörleri GitHub reposunun kök 
 Not: Kullanıcının ders verileri GitHub'a yüklenmez. Veriler cihaz localStorage içinde ve giriş yapılırsa Firebase Firestore içinde kullanıcının kendi hesabında saklanır.
 
 Ücretsiz kullanım kuralı: Spark plan, Email/Password Auth ve Firestore. Blaze, Billing, SMS/Phone, Hosting ve ücretli servisler kullanılmaz.
+
+
+Ek düzeltme: PC görünümünde Bulut Senkronizasyon paneli kapalıyken/açıkken Tema-Doodle-O/F çubuğunun üst üste binmesi giderildi.
