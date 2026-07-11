@@ -1,4 +1,4 @@
-# Yıldızlı Ortalama v0.2.7 Sync
+# Yıldızlı Ortalama v0.2.8 Sync
 
 GitHub Pages yayın klasörü.
 
@@ -21,3 +21,6 @@ Not: Kullanıcının ders verileri GitHub'a yüklenmez. Veriler cihaz localStora
 
 
 Ek düzeltme: PC görünümünde Bulut Senkronizasyon paneli kapalıyken/açıkken Tema-Doodle-O/F çubuğunun üst üste binmesi giderildi.
+
+
+Ek düzeltme: Tema / Doodle / O-F kontrolleri tek bir "Ayarlar" açılır panelinin içine alındı. PC ve mobilde üst üste binme engellendi.

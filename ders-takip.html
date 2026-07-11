@@ -39,7 +39,7 @@
     <header>
       <h1>Yıldızlı Ortalama ✦</h1>
       <p class="aciklama">Vize ve final notlarını gir, dönem ve genel ortalamanı kolayca gör.</p>
-      <span class="surum-etiketi" id="surumEtiketi">v0.2.7</span>
+      <span class="surum-etiketi" id="surumEtiketi">v0.2.8</span>
     </header>
 
     <section class="calisma-alani">
@@ -197,7 +197,12 @@
       </div>
 
       <aside class="sag-calisma">
-            <section class="gorsel-ayar-alani" aria-label="Görsel ayarlar">
+            <details class="gorsel-ayar-alani ayarlar-paneli" id="ayarlarPaneli">
+              <summary class="ayar-panel-ozet">
+                <span>Ayarlar ✦</span>
+                <span class="ayar-panel-mini">Tema / Doodle / O-F</span>
+              </summary>
+              <div class="ayar-panel-icerik" aria-label="Görsel ayarlar">
               <div class="ayar-kutusu" data-ayar="tema">
                 <button type="button" class="ayar-ana-buton" id="temaMenuButonu" aria-expanded="false" aria-controls="temaMenu">Tema ✦</button>
                 <div class="ayar-menu" id="temaMenu" hidden>
@@ -239,7 +244,8 @@
                   <p class="veri-kurtarma-notu">Vize-finali 0 olan yanlış notlu dersleri GANO'yu bozmasın diye planlanan derse çevirir.</p>
                 </div>
               </div>
-            </section>
+              </div>
+            </details>
 
             <section class="yedekleme-alani" aria-label="Veri yedekleme, aktarma ve rapor">
               <button type="button" id="disaAktarButonu">Dışa aktar</button>
