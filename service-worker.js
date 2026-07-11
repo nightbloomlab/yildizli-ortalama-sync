@@ -1,4 +1,4 @@
-const CACHE_NAME = "yildizli-ortalama-v0213-transparent-theme-settings";
+const CACHE_NAME = "yildizli-ortalama-v0214-settings-opaque-theme";
 const ASSETS = [
   "./",
   "./index.html",
