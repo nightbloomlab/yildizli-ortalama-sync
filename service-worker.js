@@ -1,11 +1,11 @@
-const CACHE_NAME = "yildizli-ortalama-v0217-mobile-compact-fonts";
+const CACHE_NAME = "yildizli-ortalama-v0218-mobile-ultra-small-fonts";
 const ASSETS = [
   "./",
   "./index.html",
   "./ders-takip.html",
-  "./css/style.css?v=0217",
-  "./js/app.js?v=0217",
-  "./js/firebase-sync.js?v=0217",
+  "./css/style.css?v=0218",
+  "./js/app.js?v=0218",
+  "./js/firebase-sync.js?v=0218",
   "./manifest-yildizli.json",
   "./assets/ders-takip-pastel-ikon.png",
   "./assets/icon-192.png",
