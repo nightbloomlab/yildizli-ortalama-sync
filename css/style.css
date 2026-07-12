@@ -6638,3 +6638,252 @@ body .ayarlar-paneli .ayar-ic-yedekleme .yedekleme-durumu {
     font-size: 14px !important;
   }
 }
+
+
+/* v0.2.19 - Mobil fontları bir kademe daha küçültme */
+@media (max-width: 768px) {
+  body {
+    font-size: 7px !important;
+  }
+
+  header h1 {
+    font-size: 13px !important;
+    line-height: 1.05 !important;
+  }
+
+  header .aciklama,
+  .aciklama {
+    font-size: 7px !important;
+    line-height: 1.2 !important;
+  }
+
+  .surum-etiketi,
+  #surumEtiketi {
+    font-size: 7px !important;
+    padding: 3px 8px !important;
+  }
+
+  .senkron-panel .senkron-baslik,
+  .senkron-baslik,
+  .ayarlar-paneli > summary.ayar-panel-ozet,
+  .ayarlar-paneli > summary.ayar-panel-ozet span,
+  .ayarlar-paneli > summary.ayar-panel-ozet > span:first-child {
+    font-size: 11px !important;
+    line-height: 1 !important;
+  }
+
+  .senkron-panel,
+  .senkron-panel *,
+  .bulut-senkronizasyon,
+  .bulut-senkronizasyon *,
+  .senkron-ozet,
+  .senkron-kisa-bilgi {
+    font-size: 7px !important;
+    line-height: 1.08 !important;
+  }
+
+  .senkron-durum,
+  .bagli-etiket,
+  .senkron-panel .senkron-durum {
+    font-size: 7px !important;
+    min-width: 36px !important;
+    padding: 2px 5px !important;
+  }
+
+  .senkron-panel summary::after,
+  .ayarlar-paneli > summary.ayar-panel-ozet::after {
+    width: 20px !important;
+    height: 20px !important;
+    flex-basis: 20px !important;
+    font-size: 10px !important;
+  }
+
+  .ayarlar-paneli > summary.ayar-panel-ozet {
+    min-height: 32px !important;
+    padding: 7px 10px !important;
+  }
+
+  .ayarlar-paneli .ayar-panel-icerik {
+    padding: 6px 8px 8px !important;
+    gap: 5px !important;
+  }
+
+  .ayarlar-paneli .ayar-panel-ust {
+    gap: 4px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .ayarlar-paneli .ayar-ana-buton,
+  .ayarlar-paneli .ayar-kutusu[data-ayar="tema"] .ayar-ana-buton,
+  .ayarlar-paneli .ayar-kutusu[data-ayar="doodle"] .ayar-ana-buton,
+  .ayarlar-paneli .ayar-kutusu[data-ayar="of"] .ayar-ana-buton,
+  .ayarlar-paneli .ayar-secim-buton {
+    font-size: 7px !important;
+    height: 23px !important;
+    min-height: 23px !important;
+    padding: 0 5px !important;
+    border-radius: 8px !important;
+    line-height: 1 !important;
+  }
+
+  .ayarlar-paneli .ayar-ic-yedekleme,
+  .ayarlar-paneli .ayar-ic-yedekleme.yedekleme-alani {
+    gap: 4px !important;
+  }
+
+  .ayarlar-paneli .ayar-ic-yedekleme button,
+  .yedekleme-alani button,
+  #disaAktarButonu,
+  #iceAktarButonu,
+  #raporYazdirButonu,
+  #tumunuSilButonu {
+    font-size: 8px !important;
+    min-height: 24px !important;
+    height: 24px !important;
+    padding: 3px 6px !important;
+    border-radius: 8px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+  }
+
+  .ayarlar-paneli .ayar-ic-yedekleme .yedekleme-durumu,
+  .yedekleme-durumu {
+    font-size: 7px !important;
+    min-height: 24px !important;
+    padding: 4px 6px !important;
+    line-height: 1.1 !important;
+    border-radius: 8px !important;
+  }
+
+  .form-katlanir-baslik,
+  .donem-secimi label,
+  .panel > summary,
+  .panel summary,
+  .senaryo-katlanabilir > summary.senaryo-ozet,
+  .veri-guvenligi-panel > summary,
+  .toplu-panel > summary,
+  .hedef-gano-panel > summary,
+  .donem-profil-panel > summary,
+  .veri-sagligi-panel > summary,
+  .liste-baslik h2,
+  .dersler-baslik h2 {
+    font-size: 8px !important;
+    line-height: 1.05 !important;
+  }
+
+  .ders-form-details > summary,
+  .form-katlanir-baslik {
+    min-height: 28px !important;
+    padding: 7px 10px !important;
+  }
+
+  .donem-secimi {
+    padding: 9px !important;
+  }
+
+  .donem-secimi select,
+  input,
+  select,
+  textarea {
+    font-size: 8px !important;
+    min-height: 27px !important;
+    height: 27px !important;
+    padding: 4px 6px !important;
+    line-height: 1.05 !important;
+  }
+
+  .sonuclar {
+    gap: 5px !important;
+  }
+
+  .sonuc-karti {
+    padding: 5px 5px !important;
+    min-height: 52px !important;
+  }
+
+  .sonuc-baslik {
+    font-size: 7px !important;
+    line-height: 1.05 !important;
+  }
+
+  .sonuc-deger {
+    font-size: 12px !important;
+    line-height: 0.95 !important;
+    margin: 2px 0 !important;
+  }
+
+  .sonuc-alt,
+  #yanoAlt,
+  #ganoAlt,
+  #dersSayisiKarti {
+    font-size: 7px !important;
+    line-height: 1.05 !important;
+  }
+
+  .filtre-butonlari button,
+  .filtreler button,
+  .ders-filtreleri button {
+    font-size: 7px !important;
+    padding: 4px 5px !important;
+    min-height: 20px !important;
+  }
+
+  .ders,
+  .ders * {
+    font-size: 7px !important;
+    line-height: 1.08 !important;
+  }
+
+  .ders h3,
+  .ders-adi {
+    font-size: 8px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  body,
+  .sayfa,
+  main,
+  section,
+  aside,
+  div,
+  p,
+  span,
+  label,
+  summary,
+  button,
+  input,
+  select,
+  textarea,
+  small,
+  strong {
+    font-size: 7px !important;
+  }
+
+  header h1 { font-size: 12px !important; }
+  header .aciklama, .aciklama { font-size: 7px !important; }
+  .surum-etiketi, #surumEtiketi { font-size: 7px !important; padding: 3px 8px !important; }
+
+  .senkron-panel .senkron-baslik,
+  .senkron-baslik,
+  .ayarlar-paneli > summary.ayar-panel-ozet span,
+  .ayarlar-paneli > summary.ayar-panel-ozet > span:first-child {
+    font-size: 11px !important;
+  }
+
+  .ayarlar-paneli .ayar-ic-yedekleme button,
+  .yedekleme-alani button,
+  #disaAktarButonu,
+  #iceAktarButonu,
+  #raporYazdirButonu,
+  #tumunuSilButonu {
+    font-size: 8px !important;
+    min-height: 24px !important;
+    height: 24px !important;
+    padding: 3px 6px !important;
+  }
+
+  .sonuc-deger {
+    font-size: 12px !important;
+  }
+}
